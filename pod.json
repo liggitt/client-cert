@@ -1,0 +1,20 @@
+{
+  "kind": "Pod",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "client-cert"
+  },
+  "spec": {
+    "containers": [
+      {
+        "name": "client-cert",
+        "image": "liggitt/client-cert:0.1.0",
+        "ports": [
+          {
+            "containerPort": 9443
+          }
+        ]
+      }
+    ]
+  }
+}
