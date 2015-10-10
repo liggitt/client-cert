@@ -9,8 +9,10 @@ import (
 func main() {
 	handler := http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
 		fmt.Println(req.URL.Path)
+		fmt.Fprintln(w, req.URL.Path)
 		for i, cert := range req.TLS.PeerCertificates {
 			fmt.Printf("  %d: %#v\n", i, cert.Subject)
+			fmt.Fprintf(w, "  %d: %#v\n", i, cert.Subject)
 		}
 	})
 
@@ -22,7 +24,7 @@ func main() {
 		},
 	}
 
-	fmt.Println("https://127.0.0.1:9443")
+	fmt.Println("Listening on 0.0.0.0:9443")
 
 	fmt.Println(server.ListenAndServeTLS("localhost.crt", "localhost.key"))
 }
