@@ -24,7 +24,7 @@ func main() {
 		},
 	}
 
-	fmt.Println("Listening on 0.0.0.0:9443")
+	fmt.Println("Listening on 0.0.0.0:9443...")
 
 	fmt.Println(server.ListenAndServeTLS("localhost.crt", "localhost.key"))
 }

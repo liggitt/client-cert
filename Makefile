@@ -5,11 +5,7 @@ VERSION = 0.1.0
 
 all: build tag_latest
 
-clean:
-	rm server
-
 build:
-	go build server.go
 	docker build -t $(NAME):$(VERSION) --rm .
 
 test:
